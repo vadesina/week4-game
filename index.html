@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Crystal Collector!</title>
+
+  <meta charset="UTF-8">
+
+  <!-- Bootstrap File -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+</head>
+
+<style>
+ body {
+    background-image: url("http://wallpapercave.com/wp/f2nbsPJ.jpg");
+}
+  
+  h1 {
+    width: 300px;
+    height: 45px;
+    background-color: white;
+    padding-top: 2px;
+    padding-bottom: 25px;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+   
+  }
+  
+  .instructions {
+    width: 50%;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    
+  }
+  
+  .random {
+    width: 25%;
+    height: 25px;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    float: left;
+  
+  }
+  
+  .scorecard {
+    width: 20%;
+    height: 25px;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    float: left;
+    
+  }
+  
+.buttons {
+  clear: both;
+  
+  
+}
+#blue{
+ float: left;
+}
+#green{
+	float: left;
+	margin-left: 10px;
+}
+#red{
+	float: left;
+	margin-left: 10px;
+}
+#yellow{
+	float: left;
+	margin-bottom: 7px;
+	margin-left: 10px;
+}
+  
+  .headline {
+  	clear: both;
+    width: 25%;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+  }
+
+.yourscore {
+    width: 25%;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+</style>
+<body>
+ <html>
+<head>
+<title>CrystalsCollector</title>
+</head>
+  
+  <body>
+    <h1>Crystals Collector!</h1>
+    <div class="instructions">
+    You will be given a random number at the start of the game.<br><br>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.<br><br>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.<br><br>The value of each crystal is hidden from you until you click on it. Each time when the game starts, the game will change the values of each crystal.
+    </div>
+    <section id="section">
+      <div class ="random">44</div>
+      <div class="scorecard">
+	      <span id = "message" >Start</span><br>
+	      <span id = "wins">Wins: 0</span><br>
+	      <span id = "Losses">Losses: 0</span>      
+      </div>
+    </section>
+    
+      <div class = "buttons">
+        <div id="blue">
+        <img src="http://ua.bootcampcontent.com/UA-Coding-Bootcamp/07-2017-Class-Repository-FSF/raw/3af0d2aca0d7f148703134280f1cbc812ced83e6/04-jquery/02-Homework/Instructions/Images/blue.png" height="60" width="60">
+        </div>
+ 
+         <div id="green">
+         <img src="http://ua.bootcampcontent.com/UA-Coding-Bootcamp/07-2017-Class-Repository-FSF/raw/3af0d2aca0d7f148703134280f1cbc812ced83e6/04-jquery/02-Homework/Instructions/Images/green.png" height="60" width="60">
+         </div>
+      
+         <div id="red">
+         <img src="http://ua.bootcampcontent.com/UA-Coding-Bootcamp/07-2017-Class-Repository-FSF/raw/3af0d2aca0d7f148703134280f1cbc812ced83e6/04-jquery/02-Homework/Instructions/Images/red.png" height="60" width="60">
+         </div>
+
+         <div id="yellow">
+         <img src="http://ua.bootcampcontent.com/UA-Coding-Bootcamp/07-2017-Class-Repository-FSF/raw/3af0d2aca0d7f148703134280f1cbc812ced83e6/04-jquery/02-Homework/Instructions/Images/yellow.png" height="60" width="60">
+         </div>
+      </div>
+    
+    <div class="headline">Your total score is:</div>
+    <div class="yourscore">0</div>
+  
+  </body>
+  
+</html>
+
+
+
+<script>
+	var Message = "";
+	var Wins = 0;
+	var losses = 0;
+	var rand = Math.floor((Math.random() * 120) + 19);
+	var myscore = 0;
+		function reset(){
+		    Message1 = "Start";
+			$("#message").text(Message1);
+		    var  rand1 = Math.floor((Math.random() * 120) + 19);
+			$(".random").text(rand1);
+			var select1 = Math.floor((Math.random() * 12) + 1);
+			var select = Math.floor((Math.random() * 12) + 1);
+			var select2 = Math.floor((Math.random() * 12) + 1);
+			var select3 = Math.floor((Math.random() * 12) + 1);
+			myscore = 0;
+			$(".yourscore").html(myscore);
+			
+		}
+	
+	 
+	    $(".random").text(rand);
+	 $(document).ready(function() {
+	 	
+	 	 var select = Math.floor((Math.random() * 12) + 1);
+	     
+	    
+	 
+	 	$("#blue").on("click", function(){
+	 	
+         $(".yourscore").text(myscore);
+             
+             myscore = myscore + select;
+	  	 	if(rand == myscore){
+	        	Wins = Wins + 1;
+	        	Message = Message + "You Win!";
+	        	$("#message").text(Message);
+	        	$("#wins").text("You Win: " + Wins);
+	        	alert("jki");
+	        	reset();
+	        	}
+	         
+	        if(myscore > rand){
+	        	losses = losses + 1;
+	        	Message = Message + "You Lose!";
+	        	$("#message").text(Message);
+	        	$("#Losses").text("You Lose: " + losses);
+	        	reset();
+	        }
+         
+        
+        });
+       
+	 		var select1 = Math.floor((Math.random() * 12) + 1);
+        $("#green").on("click", function(){
+         
+         myscore = myscore + select1;
+         $(".yourscore").text(myscore);
+
+	  	 	if(rand === myscore){
+	        	Wins = Wins + 1;
+	        	Message = Message + "You Win!";
+	        	$("#message").text(Message);
+	        	$("#wins").text("You Win: " + Wins);
+	        	reset();
+	        	}
+	         
+	        if(myscore > rand){
+	        	losses = losses + 1;
+	        	Message = Message + "You Lose!";
+	        	$("#message").text(Message);
+	        	$("#Losses").text("You Lose: " + losses);
+	        	reset();
+	        }
+         	
+        });
+	     var select2 = Math.floor((Math.random() * 12) + 1);
+   		
+        $("#red").on("click", function(){
+         
+         myscore = myscore + select2;
+         $(".yourscore").text(myscore);
+
+	  	 	if(rand == myscore){
+	        	Wins = Wins + 1;
+	        	Message = Message + "You Win!";
+	        	$("#message").text(Message);
+	        	$("#wins").text("You Win: " + Wins);
+	        	reset();
+	        	}
+	         
+	        if(myscore > rand){
+	        	losses = losses + 1;
+	        	Message = Message + "You Lose!";
+	        	$("#message").text(Message);
+	        	$("#Losses").text("You Lose: " + losses);
+	        	reset();
+	        }
+         	
+        });
+         var select3 = Math.floor((Math.random() * 12) + 1);
+        $("#yellow").on("click", function(){
+        
+         myscore = myscore + select3;
+         $(".yourscore").text(myscore);
+
+	  	 	if(rand == myscore){
+	        	Wins = Wins + 1;
+	        	Message = Message + "You Win!";
+	        	$("#message").text(Message);
+	        	$("#wins").text("You Win: " + Wins);
+	        	reset();
+	        	}
+	         
+	        if(myscore > rand){
+	        	losses = losses + 1;
+	        	Message = Message + "You Lose!";
+	        	$("#message").text(Message);
+	        	$("#Losses").text("You Lose: " + losses);
+	        	reset();
+	        }
+         	
+        });
+        
+    
+
+	 });
+
+</script>
+
+
+</body>
+</html>
